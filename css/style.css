@@ -1,8 +1,8 @@
 :root{
-    --purple: purple;
-    --teal:#80cecf;
-    --blue: #37587a;
+    --darkpurple: #462c6c;
+    --ligthpurple:#836c9d;
     --white: #eeeef8;
+    --gray: gray;
 }
   
 body{
@@ -14,13 +14,100 @@ header{
     display: flex;
     justify-content: space-between;
     margin:3px;
-    font-size: 10px;
+    font-size: 14px;
 }
 
-a{}
+a{
+    color: var(--darkpurple)
+}
 
 time{}
 
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    margin:10px;
+
+}
+
 h1{
+    font-size: 24px;
+}
+h2{
     font-size: 20px;
 }
+
+.card{
+    width:50%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+}
+
+.question{
+    width:50%;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: start;
+    text-align: start;
+}
+
+.allDone{
+    width:50%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+}
+.hallOfFame{
+    width:50%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+}
+
+button{
+    background-color: var(--darkpurple);
+    color: var(--white);
+    border-color: var(--darkpurple);
+    border-radius: 5px;
+    padding:1px 3px;
+    margin-bottom: 3px;
+}
+
+
+button:hover{
+        background-color: var(--ligthpurple);
+        border-color: var(--ligthpurple);
+        cursor: pointer;
+    }
+
+.question>p{
+    display: block;
+    color:var(--gray);
+    border-top: 1px solid grey;
+    padding:3px;
+}
+
+#initials{
+    width:30%;
+}
+
+/* #slide2, #slide3, #slide4, #slide5, #slide6, #slide7, #slide8{
+    display: none;
+} */
+.question, .highScores, .allDone{
+    display: none;
+}
+
+/* detail{
+    display: none;
+} */

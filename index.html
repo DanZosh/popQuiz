@@ -12,18 +12,123 @@
 
 
     <header>   
-        <a>View High Scores</a>
-        <p>Time input here</p>
+        <a>View Highscores</a>
+        <p id="timeEl"></p>
     </header>
 
-    <main>
-
-        <div id=slide1>
-            <h1> Intro Coding Quiz </h1>
+    <main id="main">
+<!-- DZNOTE: SLIDE_1 START-->
+        <div id="slide1" class="card">
+            <detail> SLIDE_1 </detail>
+            <h1> Coding Quiz Challenge </h1>
+            <br>
+            <p> Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds.</p>
+            <br>
+            <button id="startQuizButton">Start Quiz</button>
         </div>
+<!-- DZNOTE: SLIDE_2 QUESTION_1 -->
+        <div id="slide2" class="question">
+                <detail> SLIDE_2 QUESTION_1 </detail>
+                <h2> Commonly used data types DO NOT include as: </h2>
+                <br>
+                <ol> 
+                    <li><button id="q1o1"> 1. strings</button></li>
+                    <li><button id="q1o2"> 2. booleans</button></li>
+                    <li><button id="q1o3"> 3. alerts</button></li>
+                    <li><button id="q1o4"> 4. numbers</button></li>
+                </ol>
+                <br>
+                <p></p>
+        </div>        
+
+<!-- DZNOTE: SLIDE_3 QUESTION_2 -->
+        <div id="slide3" class="question">
+            <detail> SLIDE_3 QUESTION_2 </detail>
+            <h2> The condition in an if / else statement is enclosed within _____. </h2>
+            <br>
+            <ol> 
+                <li><button id="q2o1"> 1. quotes</button></li>
+                <li><button id="q2o2"> 2. curly brackets</button></li>
+                <li><button id="q2o3"> 3. parentheses</button></li>
+                <li><button id="q2o4"> 4. square brackets</button></li>
+            </ol>
+            <br>
+            <p>test</p>
+        </div>
+
+ <!-- DZNOTE: SLIDE_4 QUESTION_3 -->
+        <div id="slide4" class="question">
+            <detail> SLIDE_4 QUESTION_3 </detail>
+            <h2> Arrays in JavaScript can be used to store ____. </h2>
+            <br>
+            <ol> 
+                <li><button id="q3o1"> 1. numbers and strings</button></li>
+                <li><button id="q3o2"> 2. other arrays</button></li>
+                <li><button id="q3o3"> 3. booleans</button></li>
+                <li><button id="q3o4"> 4. all of the above</button></li>
+            </ol>
+            <br>
+            <p></p>
+        </div>
+
+<!-- DZNOTE: SLIDE_5 QUESTION_4 -->
+        <div id="slide5" class="question">
+            <detail> SLIDE_5 QUESTION_4 </detail>
+            <h2> String values must be enclosed within ____ when being assigned to variables. </h2>
+            <br>
+            <ol> 
+                <li><button id="q4o1"> 1. commas</button></li>
+                <li><button id="q4o2"> 2. curly brackets</button></li>
+                <li><button id="q4o3"> 3. quotes</button></li>
+                <li><button id="q4o4"> 4. parentheses</button></li>
+            </ol>
+            <br>
+            <p></p>
+        </div>
+
+<!-- DZNOTE: SLIDE_6 QUESTION_5 -->
+<div id="slide6" class="question">
+    <detail> SLIDE_6 QUESTION_5 </detail>
+    <h2> A very useful tool used during development and debugging for printing content to the debugger is. </h2>
+    <br>
+    <ol> 
+        <li><button id="q5o1"> 1. JavaScript</button></li>
+        <li><button id="q5o2"> 2. terminal/bash</button></li>
+        <li><button id="q5o3"> 3. for loops</button></li>
+        <li><button id="q5o4"> 4. console.log</button></li>
+    </ol>
+    <br>
+    <p></p>
+</div>
+<!-- DZNOTE: SLIDE_7 ALL_DONE-->
+<div id="slide7" class="allDone">
+    <detail> SLIDE_7 ALL_DONE </detail>
+    <h2> All done! </h2>
+    <br>
+    <h3>Enter initials: <span id="initials"></span><button>Submit</button></h3>
+    <div id="scores"></div>
+    </div>
+    <br>
+    <p></p>
+</div>
+
+<!-- DZNOTE: SLIDE_8  HIGH SCORES-->
+<div id="slide8" class="highScores">
+    <detail> SLIDE_8 </detail>
+    <h2> All done! </h2>
+    <br>
+    <h1> Highscores <span id="finalScore"> 22 </span></h1>
+    <div id="scores"></div>
+    <button>Go Back</button>
+    <button>Clear Highscores</button>
+    </div>
+    <br>
+    <p></p>
+</div>
+
     </main>
 
-    <script scr="./"></script>
+    <script src = "script.js"></script>
 </body>
 
 </html>
