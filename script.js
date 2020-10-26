@@ -59,12 +59,19 @@ var slide6 =  document.getElementById("slide6")
         var q5o4 =  document.getElementById("q5o4")
         console.log(q5o4)
 var slide7 =  document.getElementById("slide7")
+    var yourScore =  document.getElementById("yourScore")
+    yourScore.textContent = "Your final score is:" + score;
+
 var slide8 =  document.getElementById("slide8")
+    var scoreCard = document.getElementById("scoreCard")
+
+
 console.log(timeEl)
 console.log(slide1)
 
-var countDown = 5;
+var countDown = 75;
 var score = 0;
+
 var answerKey = {
     question1:3,
     question2:3,
@@ -72,6 +79,11 @@ var answerKey = {
     question4:3,
     question5:4,
 }
+// THIS IS OUR SCORECARD, STORE THIS TO LOCAL DATA
+// var scoreCard = {
+//     initials: Initials.value.trim(),
+//     userScore:score
+// }
 
 // WHEN the user clicks the `startQuiz` button 
 // THEN slide 1 disappears, Slide 2 appears
@@ -156,6 +168,7 @@ q5o4.addEventListener("click", function() {
 //     },1000);
 // }));
 
+// THESE ARE THE WRONG ANSWER FUNCTIONS:
 q1o1.addEventListener("click", function() {
     q1Feedback.innerHTML = "Wrong!";
     setTimeout(function(){
@@ -163,12 +176,21 @@ q1o1.addEventListener("click", function() {
         countDown = countDown -10;
     },1000);
 });
+// YOU NEED TO ENTER THE REST HERE
 
 
 
-// This one needs some work to turn us back to the final page
+
+// This one needs some work to turn us back to Slide 7
 function timeUp(){
     var mainEl = document.getElementById('main');
     console.log(mainEl)
+    slide1.style.display= "none";
+    slide2.style.display= "none";
+    slide3.style.display= "none";
+    slide4.style.display= "none";
+    slide5.style.display= "none";
+    slide7.style.display= "flex";
+    slide8.style.display= "none";
     // mainEl.style.display = "none"
 }

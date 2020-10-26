@@ -62,8 +62,8 @@ h2{
     display:flex;
     flex-direction: column;
     justify-content: center;
-    align-items:center;
-    text-align: center;
+    /* align-items:center; */
+    text-align: start;
 }
 .hallOfFame{
     width:50%;
@@ -100,13 +100,13 @@ button:hover{
 #initials{
     width:30%;
 }
-
-/* #slide2, #slide3, #slide4, #slide5, #slide6, #slide7, #slide8{
-    display: none;
-} */
-.question, .highScores, .allDone{
-    display: none;
-}
+/* These do the same thing */
+    /* #slide2, #slide3, #slide4, #slide5, #slide6, #slide7, #slide8{
+        display: none;
+    } */
+    /* .question, .highScores, .allDone{
+        display: none;
+    } */
 
 /* detail{
     display: none;
