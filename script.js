@@ -5,7 +5,7 @@ var timeEl = document.getElementById("timeEl")
 var slide1 =  document.getElementById("slide1")
         //SLIDE DOM VARIABLES ON SLIDE1
         var startQuizButton =  document.getElementById("startQuizButton")
-  
+
 var slide2 =  document.getElementById("slide2")
     //SLIDE DOM VARIABLES ON SLIDE2
         var q1o1 =  document.getElementById("slide2").children[3].children[0].children[0]
@@ -16,6 +16,8 @@ var slide2 =  document.getElementById("slide2")
         console.log(q1o3)
         var q1o4 =  document.getElementById("q1o4")
         console.log(q1o4)
+        var q1Feedback =  document.getElementById("q1Feedback")
+        console.log(q1Feedback)
 var slide3 =  document.getElementById("slide3")
     //SLIDE DOM VARIABLES ON SLIDE3
         var q2o1 =  document.getElementById("q2o1")
@@ -61,7 +63,8 @@ var slide8 =  document.getElementById("slide8")
 console.log(timeEl)
 console.log(slide1)
 
-var countDown = 5
+var countDown = 5;
+var score = 0;
 var answerKey = {
     question1:3,
     question2:3,
@@ -95,6 +98,72 @@ startQuizButton.addEventListener("click", function() {
     slide1.style.display= "none"
     slide2.style.display= "flex"
 });
+
+// Correct Answer Event Functions:
+
+q1o3.addEventListener("click", function() {
+    q1Feedback.innerHTML = "Correct";
+    score++;
+    console.log(score);
+    setTimeout(function(){
+        slide2.style.display= "none";
+        slide3.style.display= "flex";
+    },1000);
+});
+q2o3.addEventListener("click", function() {
+    q2Feedback.innerHTML = "Correct";
+    score++;
+    console.log(score);
+    setTimeout(function(){
+        slide3.style.display= "none";
+        slide4.style.display= "flex";
+    },1000);
+});
+q3o4.addEventListener("click", function() {
+    q3Feedback.innerHTML = "Correct";
+    score++;
+    console.log(score);
+    setTimeout(function(){
+        slide4.style.display= "none";
+        slide5.style.display= "flex";
+    },1000);
+});
+q4o3.addEventListener("click", function() {
+    q4Feedback.innerHTML = "Correct";
+    score++;
+    console.log(score);
+    setTimeout(function(){
+        slide5.style.display= "none";
+        slide6.style.display= "flex";
+    },1000);
+});
+q5o4.addEventListener("click", function() {
+    q5Feedback.innerHTML = "Correct";
+    score++;
+    console.log(score);
+    setTimeout(function(){
+        slide6.style.display= "none";
+        slide7.style.display= "flex";
+    },1000);
+});
+// THIS DOESN'T WORK, I need to do one at a time i think...
+// q1Wrongs = [q1o1, q1o2, q1o4];
+// q1Wrongs.forEach(q1Wrong.addEventListener("click", function(q1Wrong) {
+//     q1Feedback.innerHTML = "Wrong!";
+//     setTimeout(function(){
+//         q1Feedback.innerHTML = "";
+//         countDown = countDown -10;
+//     },1000);
+// }));
+
+q1o1.addEventListener("click", function() {
+    q1Feedback.innerHTML = "Wrong!";
+    setTimeout(function(){
+        q1Feedback.innerHTML = "";
+        countDown = countDown -10;
+    },1000);
+});
+
 
 
 // This one needs some work to turn us back to the final page
