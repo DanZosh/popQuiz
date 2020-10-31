@@ -1,11 +1,12 @@
-
-var goButtonEl = document.getElementById("go");
+//DEFINE DOM OBJECTS HERE:
+var goButtonEl = document.getElementById("startQuizButton");
 var questionEl = document.getElementById("question");
 var answerListEl = document.getElementById("answerList");
 console.log(goButtonEl)
 console.log(questionEl) 
 console.log(answerListEl)
- 
+
+//DEFINE QUESTIONS HERE:
 var questionsObject = [
     Q1={
         "Query":"Q1: Commonly used data types DO NOT include as:",
@@ -33,22 +34,31 @@ var questionsObject = [
         "correctAnswer": 3,
     }
     ]
-var questionCounter=0
-console.log(questionCounter)
+// DECLARE MY VARIABLES HERE:
+    var questionCounter=0
+    console.log(questionCounter)
 
     var Question = questionsObject[questionCounter]["Query"]
-    console.log(Question)
-    //returns question  
+    // console.log(Question)
     var Answers = questionsObject[questionCounter]["Answers"]
     // console.log(Answers)
-    //returns Answers
-
-    //trash
-    var Booleans = questionsObject[questionCounter]["Answers"][1]
-    console.log(Booleans)
-    //returns Booleans
+    // var Booleans = questionsObject[questionCounter]["Answers"][1]
+    // console.log(Booleans)
 
 
+    function setTime(event) {
+    
+        var timerInterval= setInterval(function(event) {
+        
+            timeEl.textContent = "Time: " + countDown;
+            countDown--;
+    
+            if (countDown === 0) {
+                clearInterval(timerInterval);
+                timeUp();
+            }
+        },1000);
+    }
 
 goButtonEl.addEventListener("click", function(event) {
     // add event default because items are inside a form and we want to prevent the page from reloading

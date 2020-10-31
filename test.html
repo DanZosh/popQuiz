@@ -3,15 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <title>popQuiz</title>
 </head>
 <body>
-    <button id="go">go</button>
-    <div>
-        <h2 id="question"></h2>
-            <p id="answerList"></p>
-    </div>
+    <header>   
+        <a href = "./highscore.html">View Highscores</a>
+        <p id="timeEl"></p>
+    </header>
 
+
+
+<main id="main">
+
+    <!-- <button id="go">go</button> -->
+<!-- DZNOTE: SLIDE_1 START-->
+<div id="slide1" class="card">
+    <detail> SLIDE_1 </detail>
+    <h1> Coding Quiz Challenge </h1>
+    <br>
+    <p> Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds.</p>
+    <br>
+    <button id="startQuizButton">Start Quiz</button>
+</div>
+
+<!-- QUESTIONS BELOW -->
+
+    <div class = "question">
+        <h2 id="question"></h2>
+        <br>
+        <p id="answerList"></p>
+        <br>
+        <p id="Feedback"></p>
+    </div>
+<!-- questions above -->
+
+<!-- DZNOTE: SLIDE_7 ALL_DONE-->
+<div id="slide7" class="allDone">
+    <detail> SLIDE_7 ALL_DONE </detail>
+    <h2> All done! </h2>
+    <br>
+    <p id = "yourScore"></p>
+    <br>
+    <h3>Enter initials: <input id="initials"></input><button id="submitButton">Submit</button></h3>
+    <div id="scores"></div>
+    </div>
+    <br>
+    <p></p>
+</div>
+
+
+</main>
     <script src = "test.js"></script>
 </body>
 </html>
