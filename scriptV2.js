@@ -5,6 +5,21 @@ var timeEl = document.getElementById("timeEl")
 var slide1 =  document.getElementById("slide1")
         //SLIDE DOM VARIABLES ON SLIDE1
         var startQuizButton =  document.getElementById("startQuizButton")
+        
+const questions = {
+    Q1{
+        "Query":"Commonly used data types DO NOT include as:"
+        "Answers":["strings", "booleans", "alerts", "numbers"],
+        "correctAnswer": 3
+    }
+}
+
+
+
+
+
+
+
 
 var slide2 =  document.getElementById("slide2")
     //SLIDE DOM VARIABLES ON SLIDE2
@@ -61,8 +76,7 @@ var slide6 =  document.getElementById("slide6")
 var slide7 =  document.getElementById("slide7")
     var yourScore =  document.getElementById("yourScore")
     yourScore.textContent = "Your final score is:" + score;
-    var submitButton = document.getElementById("submitButton")
-    console.log(submitButton)
+
 var slide8 =  document.getElementById("slide8")
     var scoreCard = document.getElementById("scoreCard")
 
@@ -70,7 +84,7 @@ var slide8 =  document.getElementById("slide8")
 console.log(timeEl)
 console.log(slide1)
 
-var countDown = 75;
+var countDown = 5;
 var score = 0;
 
 var answerKey = {
@@ -114,7 +128,6 @@ startQuizButton.addEventListener("click", function() {
 });
 
 // Correct Answer Event Functions:
-// Danny you left off here, you were about to try to modify this to allow the click to target right and wrong class you added to question 1
 
 q1o3.addEventListener("click", function() {
     q1Feedback.innerHTML = "Correct";
@@ -181,9 +194,6 @@ q1o1.addEventListener("click", function() {
 });
 // YOU NEED TO ENTER THE REST HERE
 
-submitButton.addEventListener("click", function() {
-    window.location.href ="./highscore.html"
-});
 
 
 

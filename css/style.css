@@ -104,9 +104,9 @@ button:hover{
     /* #slide2, #slide3, #slide4, #slide5, #slide6, #slide7, #slide8{
         display: none;
     } */
-    /* .question, .highScores, .allDone{
+    .question, .allDone{
         display: none;
-    } */
+    }
 
 /* detail{
     display: none;
