@@ -1,10 +1,18 @@
 //DEFINE DOM OBJECTS HERE:
 var goButtonEl = document.getElementById("startQuizButton");
-var questionEl = document.getElementById("question");
-var answerListEl = document.getElementById("answerList");
 console.log(goButtonEl)
+var questionEl = document.getElementById("question");
 console.log(questionEl) 
+var answerListEl = document.getElementById("answerList");
 console.log(answerListEl)
+var questionCard = document.querySelector(".question");
+console.log(questionCard)
+var allDoneCard = document.querySelector(".allDone");
+console.log(allDoneCard);
+var yourScoreEl = document.getElementById("yourScore");
+console.log(yourScoreEl)
+
+
 
 //DEFINE QUESTIONS HERE:
 var questionsObject = [
@@ -34,6 +42,8 @@ var questionsObject = [
         "correctAnswer": 3,
     }
     ]
+    console.log(questionsObject.length);
+
 // DECLARE MY VARIABLES HERE:
     var questionCounter=0
     console.log(questionCounter)
@@ -44,28 +54,29 @@ var questionsObject = [
     // console.log(Answers)
     // var Booleans = questionsObject[questionCounter]["Answers"][1]
     // console.log(Booleans)
+    var countDown = 25;
+    var score = 0;
 
+function setTime(event) {
+    
+    var timerInterval= setInterval(function(event) {
+    
+        timeEl.textContent = "Time: " + countDown;
+        countDown--;
 
-    function setTime(event) {
-    
-        var timerInterval= setInterval(function(event) {
-        
-            timeEl.textContent = "Time: " + countDown;
-            countDown--;
-    
-            if (countDown === 0) {
-                clearInterval(timerInterval);
-                timeUp();
-            }
-        },1000);
-    }
+        if (countDown === 0) {
+            clearInterval(timerInterval);
+            timeUp();
+        }
+    },1000);
+}
 
 goButtonEl.addEventListener("click", function(event) {
     // add event default because items are inside a form and we want to prevent the page from reloading
-
+    setTime();
     event.preventDefault();
     console.log(event.target);
-
+    slide1.style.display= "none"
     // replace the innerHTML of `questionEl` with Question1
     console.log(Question);
     questionEl.innerHTML= Question
@@ -104,10 +115,8 @@ answerListEl.addEventListener("click", function(event) {
     console.log(questionCounter)
     console.log(questionsObject[1]["Query"])
     console.log(questionsObject[questionCounter]["Query"])
-    //why isn't `question` updating
-    // console.log(Question)
-    
-    //This resets to question 2
+
+    //This resets the question
     questionEl.innerHTML= questionsObject[questionCounter]["Query"]
 
     console.log(answerListEl)
@@ -141,14 +150,37 @@ answerListEl.addEventListener("click", function(event) {
         console.log(questionButton)
         // this appends the text to the element
         answerListEl.appendChild(questionButton)
-}
+    }
 
-
+//add some functionality to bring slide 7 back.
 questionCounter++
 
 console.log(questionCounter)
+//if the click event matches the question index, then 
+score++;
+console.log(score);
+
+
+if(questionCounter === questionsObject.length+1){
+    timeUp()
+    // questionCard.style.display= "none";
+    // allDoneCard.style.display= "flex";
+}
+
+
+
 });
 
+function timeUp(){
+    // if(countDown === 0){}
+    //WHEN time is up
+    //THEN the question card displays none
+    //And the all done card visibility turns on
+    questionCard.style.display= "none";
+    allDoneCard.style.display= "flex";
+    yourScoreEl.innerHTML = "Your Score: " + score
+    
+}
 
 
 
