@@ -202,7 +202,7 @@ function timeUp(){
 //FUNCTIONALITY for the submit button
 submitButton.addEventListener("click", function(event) {
     event.preventDefault();
-
+    //SAVE score and intials object to local storage
     var userInitialsScore ={
         userInitials: initialsInputEl.value.trim(),
         //this console log breaks the js
@@ -216,30 +216,7 @@ submitButton.addEventListener("click", function(event) {
     localStorage.setItem("userInitialsScore", JSON.stringify(userInitialsScore)); 
 
     //REDIRECT to `highscore` page
-    // window.location.href ="./highscore.html"
-
-    // renderUserInitialScore()window.location.href ="./highscore.html"
-    var lastUser = JSON.parse(localStorage.getItem("userInitialsScore")); 
-    var divBox = document.createElement("div");
-    divBox.setAttribute("class", "scoreCardDiv")
-    var paraInitials = document.createElement("p");
-    var detailScore = document.createElement("detail");
-    //render the user initials
-    // this creates an element
-    var renderedInitials = document.createTextNode(lastUser.userInitials);
-    var renderedScore = document.createTextNode(lastUser.userScore);
-    // this creates text
-    paraInitials.appendChild(renderedInitials)
-    detailScore.appendChild(renderedScore)
-    // this appends the text to the element
-    divBox.appendChild(paraInitials)
-
-    divBox.appendChild(detailScore)
-    scoreCardEl.appendChild(divBox)
-    // this adds the element to the document
-    //render the user score
-
-
+    window.location.href ="./highscore.html"
     
 });
 

@@ -29,7 +29,7 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items:center;
-    margin:10px;
+    margin:50px;
 
 }
 
@@ -106,7 +106,7 @@ button:hover{
 }
 
 #scoreCard{
-    width:50%;
+    /* width:50%; */
     flex-direction: column;
     justify-content: space-between;
     align-content: flex-start;
@@ -116,7 +116,7 @@ button:hover{
     /* border: 1px solid black; */
 }
 .scoreCardDiv{
-    width:30%;
+    width:100%;
     display: flex;
     background-color: var(--verylightpurple);
     align-content: center;
