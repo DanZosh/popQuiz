@@ -13,3 +13,9 @@ goBackButton.addEventListener("click", function(event) {
 });
 
 //Add functionality for the `clearHighScoresButton`
+var storedScore = localStorage.getItem("scoreStored")
+scoreCard = storedScore
+
+
+//Add functionality to render the score and initials from the local storage
+

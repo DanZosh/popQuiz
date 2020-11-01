@@ -11,9 +11,12 @@ var allDoneCard = document.querySelector(".allDone");
 console.log(allDoneCard);
 var yourScoreEl = document.getElementById("yourScore");
 console.log("Score:" + yourScoreEl)
+var initialsInputEl = document.getElementById("initials");
+console.log("Initials:" + initialsInputEl)
 var submitButton = document.getElementById("submitButton")
 console.log(submitButton);
-
+var scoreCardEl = document.getElementById("scoreCard")
+console.log(scoreCardEl);
 
 
 
@@ -45,7 +48,8 @@ var questionsObject = [
         "correctAnswer": "4. console.log",
     }
     ]
-    console.log(questionsObject.length);
+    console.log("questionObjectLength " + questionsObject.length);
+
 
 // DECLARE MY VARIABLES HERE:
     var questionCounter=0
@@ -87,6 +91,8 @@ goButtonEl.addEventListener("click", function(event) {
     questionEl.innerHTML= Question
 
 
+
+
     for (var i = 0; i < Answers.length; i++) {
 
         var questionButton = document.createElement("button");
@@ -105,6 +111,7 @@ goButtonEl.addEventListener("click", function(event) {
 questionCounter++
 console.log("question Counter: " + questionCounter)
 });
+
 
 
 
@@ -140,9 +147,9 @@ answerListEl.addEventListener("click", function(event) {
     answerListEl.removeChild(answerListEl.childNodes[0])
     answerListEl.removeChild(answerListEl.childNodes[0])
 
-    // // the below doesn't work
+    // the below doesn't work
     // for (let i = 0; i < answerListEl.childNodes.length; i++) {
-    //     answerListEl.removeChild(answerListEl.childNodes[0]) 
+    //     answerListEl.removeChild(answerListEl.childNodes[i]) 
     // }
 
     // // the below doesn't work
@@ -168,7 +175,7 @@ answerListEl.addEventListener("click", function(event) {
 //add some functionality to bring slide 7 back.
 questionCounter++
 console.log("question Counter: " + questionCounter)
-
+console.log("score: " + score)
 
 
 if(questionCounter === questionsObject.length+1){
@@ -193,37 +200,89 @@ function timeUp(){
 }
 
 //FUNCTIONALITY for the submit button
-submitButton.addEventListener("click", function() {
-    window.location.href ="./highscore.html"
+submitButton.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    var userInitialsScore ={
+        userInitials: initialsInputEl.value.trim(),
+        //this console log breaks the js
+            // console.log(userInitials)        
+        userScore: score,
+         //this console log breaks the js
+            // console.log(userScore)        
+    }
+            console.log(userInitialsScore);
+
+    localStorage.setItem("userInitialsScore", JSON.stringify(userInitialsScore)); 
+
+    //REDIRECT to `highscore` page
+    // window.location.href ="./highscore.html"
+
+    // renderUserInitialScore()window.location.href ="./highscore.html"
+    var lastUser = JSON.parse(localStorage.getItem("userInitialsScore")); 
+    var divBox = document.createElement("div");
+    divBox.setAttribute("class", "scoreCardDiv")
+    var paraInitials = document.createElement("p");
+    var detailScore = document.createElement("detail");
+    //render the user initials
+    // this creates an element
+    var renderedInitials = document.createTextNode(lastUser.userInitials);
+    var renderedScore = document.createTextNode(lastUser.userScore);
+    // this creates text
+    paraInitials.appendChild(renderedInitials)
+    detailScore.appendChild(renderedScore)
+    // this appends the text to the element
+    divBox.appendChild(paraInitials)
+
+    divBox.appendChild(detailScore)
+    scoreCardEl.appendChild(divBox)
+    // this adds the element to the document
+    //render the user score
+
+
+    
 });
 
 console.log("question Counter: " + questionCounter)
 
-
+//SCORE KEEPING FUNCTIONALITY
 // if the click event matches the correct answer index, then
+console.log(event.target.innerHTML);
+console.log(questionsObject[questionCounter-1]);
 
-// console.log(event.target.innerHTML);
-// console.log(questionsObject[questionCounter-1]
-function scoreKeeper(){
+function scoreKeeper(event){
     if(event.target.innerHTML == (questionsObject[questionCounter-1]["correctAnswer"])){
     score++;
     console.log("Score:" + score);
 }else{
-    countDown--;
+    countDown= countDown-10;
 };
+
 }
 
+// LOCAL STORAGE FUNCTIONALITY
+    // store the score in the browser as the value of the key `scoreStored`
 
+    // submitButton.addEventListener("click", function(event){
+    //     event.preventDefault();
 
+    //     var userInitialsScore ={
+    //         userInitials: initialsInputEl.value.trim(),
+    //         userScore: score,
+            
+    //     }
 
+    //     console.log(userInitials)
+    //     console.log(userScore)
+    //     console.log(userInitialsScore);
 
-    //   if(event.target.matches("button")) {
-    //     if the click happening to a button, this other logic happens below
-    //     event.target is the item we clicked
-    //     var button = document.createElement("button");
-    //     //^this creates a new div called item in which to store our new grocery item
-    //     button.textContent = groceries[event.target.parentElement.id];
-    //     //^this is saying get the id of the parent element of the button that clicked, that id correlats to the index of the grocery list above on line 3 
-    //     shoppingCartEl.append(item);
-    //     ^this appends the items to the shopping cart.
-    // });
+    //     localStorage.setItem("userInitialsScore", JSON.stringify(userInitialsScore)); 
+    //     renderUserInitialScore()
+
+    // })
+
+//render the user information to the HighScore page
+    function renderUserInitialScore(){
+
+    }
+

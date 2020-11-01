@@ -1,13 +1,14 @@
 :root{
     --darkpurple: #462c6c;
     --ligthpurple:#836c9d;
+    --verylightpurple:#dfd0f0;
     --white: #eeeef8;
     --gray: gray;
 }
   
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--white);
+    /* background-color: var(--white); */
 }
 
 header{
@@ -101,9 +102,36 @@ button:hover{
 
 #initials{
     width:30%;
+    margin:3px;
 }
 
-
+#scoreCard{
+    width:50%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: flex-start;
+    display:flex;
+    flex-wrap: wrap;
+    line-height: 1.5em;
+    /* border: 1px solid black; */
+}
+.scoreCardDiv{
+    width:30%;
+    display: flex;
+    background-color: var(--verylightpurple);
+    align-content: center;
+    margin:3px;
+    font-size: 14px;
+    /* border: 1px solid black; */
+}
+.scoreCardDiv>p {
+    width:50%;
+    align-content: center;
+}
+.scoreCardDiv>detail {
+    width:50%;
+    align-content: center;
+}
 /* These do the same thing and were */
     /* #slide2, #slide3, #slide4, #slide5, #slide6, #slide7, #slide8{
         display: none;
