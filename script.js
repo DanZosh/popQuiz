@@ -1,97 +1,70 @@
-// Set up our DOM variables
-    //HEADER DOM VARIABLES
-var timeEl = document.getElementById("timeEl")
-    //SLIDE DOM VARIABLES
-var slide1 =  document.getElementById("slide1")
-        //SLIDE DOM VARIABLES ON SLIDE1
-        var startQuizButton =  document.getElementById("startQuizButton")
-
-var slide2 =  document.getElementById("slide2")
-    //SLIDE DOM VARIABLES ON SLIDE2
-        var q1o1 =  document.getElementById("slide2").children[3].children[0].children[0]
-        console.log(q1o1)
-        var q1o2 =  document.getElementById("q1o2")
-        console.log(q1o2)
-        var q1o3 =  document.getElementById("q1o3")
-        console.log(q1o3)
-        var q1o4 =  document.getElementById("q1o4")
-        console.log(q1o4)
-        var q1Feedback =  document.getElementById("q1Feedback")
-        console.log(q1Feedback)
-var slide3 =  document.getElementById("slide3")
-    //SLIDE DOM VARIABLES ON SLIDE3
-        var q2o1 =  document.getElementById("q2o1")
-        console.log(q2o1)
-        var q2o2 =  document.getElementById("q2o2")
-        console.log(q2o2)
-        var q2o3 =  document.getElementById("q2o3")
-        console.log(q2o3)
-        var q2o4 =  document.getElementById("q2o4")
-        console.log(q2o4)
-var slide4 =  document.getElementById("slide4")
-    //SLIDE DOM VARIABLES ON SLIDE4
-        var q3o1 =  document.getElementById("q3o1")
-        console.log(q3o1)
-        var q3o2 =  document.getElementById("q3o2")
-        console.log(q3o2)
-        var q3o3 =  document.getElementById("q3o3")
-        console.log(q3o3)
-        var q3o4 =  document.getElementById("q3o4")
-        console.log(q3o4)
-var slide5 =  document.getElementById("slide5")
-     //SLIDE DOM VARIABLES ON SLIDE5
-        var q4o1 =  document.getElementById("q4o1")
-        console.log(q4o1)
-        var q4o2 =  document.getElementById("q4o2")
-        console.log(q4o2)
-        var q4o3 =  document.getElementById("q4o3")
-        console.log(q4o3)
-        var q4o4 =  document.getElementById("q4o4")
-        console.log(q4o4)
-var slide6 =  document.getElementById("slide6")
-     //SLIDE DOM VARIABLES ON SLIDE6
-        var q5o1 =  document.getElementById("q5o1")
-        console.log(q5o1)
-        var q5o2 =  document.getElementById("q5o2")
-        console.log(q5o2)
-        var q5o3 =  document.getElementById("q5o3")
-        console.log(q5o3)
-        var q5o4 =  document.getElementById("q5o4")
-        console.log(q5o4)
-var slide7 =  document.getElementById("slide7")
-    var yourScore =  document.getElementById("yourScore")
-    yourScore.textContent = "Your final score is:" + score;
-    var submitButton = document.getElementById("submitButton")
-    console.log(submitButton)
-var slide8 =  document.getElementById("slide8")
-    var scoreCard = document.getElementById("scoreCard")
+//DEFINE DOM OBJECTS HERE:
+var goButtonEl = document.getElementById("startQuizButton");
+console.log(goButtonEl)
+var questionEl = document.getElementById("question");
+console.log(questionEl) 
+var answerListEl = document.getElementById("answerList");
+console.log(answerListEl)
+var questionCard = document.querySelector(".question");
+console.log(questionCard)
+var allDoneCard = document.querySelector(".allDone");
+console.log(allDoneCard);
+var yourScoreEl = document.getElementById("yourScore");
+console.log("Score:" + yourScoreEl)
+var initialsInputEl = document.getElementById("initials");
+console.log("Initials:" + initialsInputEl)
+var submitButton = document.getElementById("submitButton")
+console.log(submitButton);
+var scoreCardEl = document.getElementById("scoreCard")
+console.log(scoreCardEl);
 
 
-console.log(timeEl)
-console.log(slide1)
 
-var countDown = 75;
-var score = 0;
+//DEFINE QUESTIONS HERE:
+var questionsObject = [
+    Q1={
+        "Query":"Q1: Commonly used data types DO NOT include as:",
+        "Answers" :["1. alerts", "2. booleans", "3. strings", "4 .numbers"],
+        "correctAnswer": "0"
+    },
+    Q2={ 
+        "Query":"Q2: The condition in an if / else statement is enclosed within _____.",
+        "Answers" :["1. quotes", "2. parentheses", "3. curly brackets", "4. square brackets"],
+        "correctAnswer": "1",
+    },
+    Q3={
+        "Query":"Q3:String values must be enclosed within ____ when being assigned to variables.",
+        "Answers" :["1. commas", "2. curly brackets", "3. quotes", "4. parentheses"],
+        "correctAnswer": "2",
+    },
+    Q4={
+        "Query":"Q4: Arrays in JavaScript can be used to store ____.",
+        "Answers" :["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"],
+        "correctAnswer": "3",
+    },
+    Q5={
+        "Query":"Q5: A very useful tool used during development and debugging for printing content to the debugger is:",
+        "Answers" :["1. JavaScript", "2. terminal/bash", "3. for loops", "4. console.log"],
+        "correctAnswer": "3",
+    }
+    ]
+    console.log("questionObjectLength " + questionsObject.length);
 
-var answerKey = {
-    question1:3,
-    question2:3,
-    question3:4,
-    question4:3,
-    question5:4,
-}
-// THIS IS OUR SCORECARD, STORE THIS TO LOCAL DATA
-// var scoreCard = {
-//     initials: Initials.value.trim(),
-//     userScore:score
-// }
 
-// WHEN the user clicks the `startQuiz` button 
-// THEN slide 1 disappears, Slide 2 appears
-// AND the time element `timeEl` begins at `startTime`
-// AND starts to countdown
+// DECLARE MY VARIABLES HERE:
+    var questionCounter=0
+    console.log("question Counter: " + questionCounter)
 
-//after but button clicks.............
+    var Question = questionsObject[questionCounter]["Query"]
+    // console.log(Question)
+    var Answers = questionsObject[questionCounter]["Answers"]
+    // console.log(Answers)
+    // var Booleans = questionsObject[questionCounter]["Answers"][1]
+    // console.log(Booleans)
+    var correctAnswerIndex = questionsObject[questionCounter]["correctAnswer"];
+    console.log("Correct Answer Index: " + correctAnswerIndex)
+    var countDown = 100;
+    var score = 0;
 
 function setTime(event) {
     
@@ -106,97 +79,173 @@ function setTime(event) {
         }
     },1000);
 }
-startQuizButton.addEventListener("click", function() {
+//GOBUTTON START
+goButtonEl.addEventListener("click", function(event) {
+    // add event default because items are inside a form and we want to prevent the page from reloading
     setTime();
-    console.log("test");
+    event.preventDefault();
+    console.log(event.target);
     slide1.style.display= "none"
-    slide2.style.display= "flex"
+    // replace the innerHTML of `questionEl` with Question1
+    console.log(Question);
+    questionEl.innerHTML= Question
+
+    //LOOP through the question answers and render to the page
+    for (var i = 0; i < Answers.length; i++) {
+
+        var questionButton = document.createElement("button");
+        questionButton.setAttribute("data-index",i)
+        var questionButtonIndex = questionButton.getAttribute("data-index");
+        console.log(questionButtonIndex)
+        // console.log(questionButton)
+        // this creates a button element
+        var questionText = document.createTextNode(Answers[i]);
+        // console.log(questionText)
+        // this creates text
+        questionButton.appendChild(questionText)
+        // console.log(questionButton)
+        // this appends the text to the element
+        answerListEl.appendChild(questionButton)
+}
+
+// scoreKeeper();
+questionCounter++
+console.log("question Counter: " + questionCounter)
+});
+//GOBUTTON END
+
+
+
+answerListEl.addEventListener("click", function(event) {
+
+
+    event.preventDefault();
+    console.log(event.target.innerHTML);
+    console.log(questionsObject[questionCounter-1]["correctAnswer"])
+    event.stopPropagation();
+
+    //WHEN i click on an answer
+    //THEN the `questionEl` is replaced with  questionsObject[1]["Query"]
+    console.log("question Counter: " + questionCounter)
+    console.log(questionsObject[1]["Query"])
+    // console.log(questionsObject[questionCounter]["Query"])
+
+    //WHEN the last question is answered
+    //THEN run the timeup function
+    if (questionCounter == questionsObject.length){
+        timeUp()
+    }
+
+    //THIS RESETS THE QUESTION
+    questionEl.innerHTML= questionsObject[questionCounter]["Query"]
+
+    console.log(answerListEl)
+    console.log(answerListEl.childNodes)
+    
+    // The below works 
+    answerListEl.removeChild(answerListEl.childNodes[0])
+    answerListEl.removeChild(answerListEl.childNodes[0])
+    answerListEl.removeChild(answerListEl.childNodes[0])
+    answerListEl.removeChild(answerListEl.childNodes[0])
+
+    // the below doesn't work
+    // for (let i = 0; i < answerListEl.childNodes.length; i++) {
+    //     answerListEl.removeChild(answerListEl.childNodes[i]) 
+    // }
+
+    // // the below doesn't work
+    // while (answerListEl.childNodes.length >0){
+    //     answerListEl.removeChild(answerListEl.childNodes[-1])
+    //     }
+
+    //THIS LOADS THE QUESTION BUTTONS
+    for (var i = 0; i < Answers.length; i++) {
+
+        var questionButton = document.createElement("button");
+        questionButton.setAttribute("data-index",i);
+        var questionButtonIndex = questionButton.getAttribute("data-index");
+        console.log(questionButtonIndex);
+        // console.log(questionButton)
+        // this creates a button element
+        var questionText = document.createTextNode(questionsObject[questionCounter]["Answers"][i]);
+        // console.log(questionText)
+        // this creates text
+        questionButton.appendChild(questionText)
+        // console.log(questionButton)
+        // this appends the text to the element
+        answerListEl.appendChild(questionButton)
+    }
+
+//add some functionality to bring slide 7 back.
+questionCounter++
+console.log("question Counter: " + questionCounter)
+console.log("score: " + score)
+
+
+if(questionCounter === questionsObject.length+1){
+    timeUp()
+}
+
+scoreKeeper(event);
+//END OF answerListEL functionality
 });
 
-// Correct Answer Event Functions:
-// Danny you left off here, you were about to try to modify this to allow the click to target right and wrong class you added to question 1
+//FUNCTIONALITY of the timeUp function
+function timeUp(){
+    // if(countDown === 0){}
+    //WHEN time is up
+    //THEN the question card displays none
+    //And the all done card visibility turns on
+    questionCard.style.display= "none";
+    allDoneCard.style.display= "flex";
+    yourScoreEl.innerHTML = "Your Score: " + score;
+    countDown.innerHTML = "";
+    
+}
+userInitialsScoreList=[];
 
-q1o3.addEventListener("click", function() {
-    q1Feedback.innerHTML = "Correct";
-    score++;
-    console.log(score);
-    setTimeout(function(){
-        slide2.style.display= "none";
-        slide3.style.display= "flex";
-    },1000);
-});
-q2o3.addEventListener("click", function() {
-    q2Feedback.innerHTML = "Correct";
-    score++;
-    console.log(score);
-    setTimeout(function(){
-        slide3.style.display= "none";
-        slide4.style.display= "flex";
-    },1000);
-});
-q3o4.addEventListener("click", function() {
-    q3Feedback.innerHTML = "Correct";
-    score++;
-    console.log(score);
-    setTimeout(function(){
-        slide4.style.display= "none";
-        slide5.style.display= "flex";
-    },1000);
-});
-q4o3.addEventListener("click", function() {
-    q4Feedback.innerHTML = "Correct";
-    score++;
-    console.log(score);
-    setTimeout(function(){
-        slide5.style.display= "none";
-        slide6.style.display= "flex";
-    },1000);
-});
-q5o4.addEventListener("click", function() {
-    q5Feedback.innerHTML = "Correct";
-    score++;
-    console.log(score);
-    setTimeout(function(){
-        slide6.style.display= "none";
-        slide7.style.display= "flex";
-    },1000);
-});
-// THIS DOESN'T WORK, I need to do one at a time i think...
-// q1Wrongs = [q1o1, q1o2, q1o4];
-// q1Wrongs.forEach(q1Wrong.addEventListener("click", function(q1Wrong) {
-//     q1Feedback.innerHTML = "Wrong!";
-//     setTimeout(function(){
-//         q1Feedback.innerHTML = "";
-//         countDown = countDown -10;
-//     },1000);
-// }));
+//FUNCTIONALITY for the submit button
+submitButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    //SAVE score and intials object to local storage
+    var userInitialsScore ={
+        userInitials: initialsInputEl.value.trim(),
+        userScore: score,
+    }
+        console.log(userInitialsScore);
+        console.log("User intial score list" + userInitialsScoreList)
+        console.log("User Initial Score List Length" + userInitialsScoreList.length)
+        //GET the local storage scorecard
+        var retrievedScorecard = JSON.parse(localStorage.getItem("userInitialsScoreList"))
+        //IF a scorecard doesn't exist in local storage
+        //CREATE a blank scorecard for the first cycle
+        if (!retrievedScorecard){
+            retrievedScorecard=[]
+        }
+        retrievedScorecard.push(userInitialsScore)
+    localStorage.setItem("userInitialsScoreList", JSON.stringify(retrievedScorecard)); 
 
-// THESE ARE THE WRONG ANSWER FUNCTIONS:
-q1o1.addEventListener("click", function() {
-    q1Feedback.innerHTML = "Wrong!";
-    setTimeout(function(){
-        q1Feedback.innerHTML = "";
-        countDown = countDown -10;
-    },1000);
-});
-// YOU NEED TO ENTER THE REST HERE
-
-submitButton.addEventListener("click", function() {
+    //REDIRECT to `highscore` page
     window.location.href ="./highscore.html"
 });
 
 
-
-// This one needs some work to turn us back to Slide 7
-function timeUp(){
-    var mainEl = document.getElementById('main');
-    console.log(mainEl)
-    slide1.style.display= "none";
-    slide2.style.display= "none";
-    slide3.style.display= "none";
-    slide4.style.display= "none";
-    slide5.style.display= "none";
-    slide7.style.display= "flex";
-    slide8.style.display= "none";
-    // mainEl.style.display = "none"
+console.log("question Counter: " + questionCounter)
+console.log(questionsObject[questionCounter-1]);
+//Functionality of the scoreKeeper 
+function scoreKeeper(event){
+    var correctAnswerIndex = questionsObject[questionCounter-2]["correctAnswer"];
+        console.log(correctAnswerIndex);
+    var clickedAnswerIndex = event.target.getAttribute("data-index");
+        console.log(clickedAnswerIndex);
+    if(correctAnswerIndex === clickedAnswerIndex){
+        score++
+        console.log("Score:" + score);
+        console.log("QuestionCounter: " + questionCounter)
+    }else{
+        countDown= countDown-10;
+    };
 }
+
+
+

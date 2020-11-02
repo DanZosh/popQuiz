@@ -12,7 +12,7 @@ console.log(clearHighscoresButton)
 //WHEN the user clicks `goBackButton`
 //The window relocates to the quiz
 goBackButton.addEventListener("click", function(event) {
-    window.location.href ="./test.html"
+    window.location.href ="./index.html"
 });
 
 //Add functionality for the `clearHighScoresButton`
@@ -20,25 +20,22 @@ var storedScore = localStorage.getItem("scoreStored")
 scoreCard = storedScore
 
 
-//Add functionality to render the score and initials from the local storage
-//RENDER the scores to the page
-        //GET the data from local storage
-        var lastUser = JSON.parse(localStorage.getItem("userInitialsScore")); 
+function renderScorecard(){
+    //RENDER the scores to the page
+        //GET and PARSE the data from local storage
+        var gottenList = JSON.parse(localStorage.getItem("userInitialsScoreList")); 
+        //FOR each element in the parsed list
+    for (let i = 0; i < gottenList.length; i++) {
         //CREATE elements to display the data
+        
     var divBox = document.createElement("div");
         divBox.setAttribute("class", "scoreCardDiv")
-    var paraInitials = document.createElement("p");
-    var detailScore = document.createElement("detail");
+    // var paraInitials = document.createElement("p");
+    // var detailScore = document.createElement("detail");
         //ASSIGN gotten data to variables
-    var renderedInitials = document.createTextNode(lastUser.userInitials + ": ");
-    var renderedScore = document.createTextNode(lastUser.userScore);
+    var renderedInitials = document.createTextNode(gottenList[i].userInitials + ": ");
+    var renderedScore = document.createTextNode(gottenList[i].userScore);
         //APPEND the variables with gotten data to Elements
-
-        
-    // paraInitials.appendChild(renderedInitials)
-    // detailScore.appendChild(renderedScore)
-
-
         //APPEND the Elements to the container
     // divBox.appendChild(paraInitials)
     // divBox.appendChild(detailScore)
@@ -49,3 +46,13 @@ scoreCard = storedScore
     // this adds the element to the document
     //render the user score
 //end RENDER the scores to the page
+    
+    }
+}
+
+renderScorecard()
+
+clearHighscoresButton.addEventListener("click", function(event) {
+    localStorage.setItem("userInitialsScoreList", JSON.stringify([]));
+    window.location.reload();
+});
