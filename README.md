@@ -1,2 +1,27 @@
 # popQuiz
-This is the repository for Homework 4
+This is the repository for Homework 4.
+
+This application is a fun quiz game to rest your knowledge about web development so far. 
+
+## HOW TO USE:
+```
+GIVEN you are taking a code quiz
+WHEN you click the start button
+THEN a timer starts and you are presented with a question
+WHEN you answer a question
+THEN you am presented with another question
+WHEN you answer a question incorrectly
+THEN time is subtracted from the clock
+WHEN all questions are answered or the timer reaches 0
+THEN the game is over
+WHEN the game is over
+THEN I you save my initials and score
+WHEN you submit your initials and score
+THEN they are displayed against other user's results
+```
+
+## LINK
+[link to take the quiz](https://danzosh.github.io/popQuiz/)
+
+## JS Code
+![JS CODE SCREENSHOT](./assets/Homework3.pgn)
