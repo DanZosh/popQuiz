@@ -24,4 +24,5 @@ THEN they are displayed against other user's results
 [link to take the quiz](https://danzosh.github.io/popQuiz/)
 
 ## JS Code
-![JS CODE SCREENSHOT](./assets/Homework3.pgn)
+![JS ScriptCODE SCREENSHOT](./codeScreenshots/scriptCode.pgn)
+![JS HighscoreCODE SCREENSHOT](./codeScreenshots/highscoreCode.pgn)
